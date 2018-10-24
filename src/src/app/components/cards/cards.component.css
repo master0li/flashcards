@@ -1,0 +1,16 @@
+div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    width: 75%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+p {
+    font-size: 25vw;
+}
