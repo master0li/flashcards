@@ -1,14 +1,40 @@
-div {
+/* div {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 mat-card {
     width: 75%;
     margin: 10px auto;
+    padding: 0;
+  }
+
+  mat-card-content {
+      
     text-align: center;
+  }
+
+  mat-card-actions {
+      align-items: center;
+  }
+
+  mat-card-actions div {
+      
+    padding: 10px;
+  }
+
+  mat-card-header {
+      align-items: center;
+      padding-top: 10px;
+      border-bottom: 1px solid black
+  }
+
+
+
+  .toolbar-spacer {
+      flex: 1 1 auto;
   }
 
 p {

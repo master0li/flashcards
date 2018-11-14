@@ -10,6 +10,8 @@ export class CardsComponent implements OnInit {
 
   currentCard = new Card(); 
   currentIndex = 0;
+  showQuestion: boolean = true;
+  title: string = "Nolan's Sight Words";
 
   cards = [
 
@@ -47,6 +49,8 @@ export class CardsComponent implements OnInit {
 
   public nextCard()
   {
+    this.showQuestion = true;
+
     if (this.currentIndex < 0)
     {
       this.shuffleInPlace<Card>(this.cards);
@@ -59,6 +63,29 @@ export class CardsComponent implements OnInit {
 
     this.currentIndex--;
 
+  }
+
+  public previousCard()
+  {
+    this.showQuestion = true;
+
+    if (this.currentIndex > this.cards.length)
+    {
+      this.shuffleInPlace<Card>(this.cards);
+      this.currentIndex = this.cards.length - 1;
+    }
+
+
+    this.currentCard = { ...this.cards[this.currentIndex] };
+    this.currentCard.Question = this.setCase(this.currentCard.Question);
+
+    this.currentIndex++;
+
+  }
+
+  public toggleAnswerQuestion()
+  {
+    this.showQuestion = !this.showQuestion;
   }
 
   public shuffleInPlace<T>(array: T[]): T[] {

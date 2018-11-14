@@ -1,5 +1,34 @@
-<mat-card (click)="nextCard()">
-  <mat-card-content>
-    <p>{{currentCard.Question}}</p>
+<app-toolbar></app-toolbar>
+<mat-card>
+    <mat-card-header fxLayout="row">
+    <mat-card-title fxLex="auto">
+      {{title}}
+    </mat-card-title>
+    <div fxFlex="auto" fxLayoutAlign="end">SETS</div>
+    </mat-card-header>
+  <mat-card-content  (click)="nextCard()">
+    <p *ngIf="showQuestion">{{currentCard.Question}}</p>
+    <p *ngIf="!showQuestion">{{currentCard.Answer}}</p>
   </mat-card-content>
-</mat-card>
+  
+
+
+<mat-card-actions fxLayout="row">
+    <div fxFlex="auto">
+        <button mat-icon-button (click)="previousCard()">
+            <mat-icon class="md-24">keyboard_arrow_left</mat-icon>
+        </button>
+    </div>
+    <div fxFlex="auto" fxLayoutAlign="center">
+        <button mat-raised-button *ngIf="showQuestion" (click)="toggleAnswerQuestion()">ANSWER</button>
+        <button mat-raised-button *ngIf="!showQuestion" (click)="toggleAnswerQuestion()">QUESTION</button>
+      </div>
+    <div fxFlex="auto" fxLayoutAlign="end">
+        <button mat-icon-button (click)="nextCard()">
+            <mat-icon class="md-24">keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+    
+  </mat-card-actions>
+
+</mat-card> 
