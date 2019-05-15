@@ -7,12 +7,14 @@ import { SetsComponent } from './components/sets/sets.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModules} from './material-modules';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
-    SetsComponent
+    SetsComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
