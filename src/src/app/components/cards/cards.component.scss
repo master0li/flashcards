@@ -25,9 +25,13 @@ mat-card {
     padding: 10px;
   }
 
+  .mat-card-title {
+      margin: 0 !important;
+  }
+
   mat-card-header {
       align-items: center;
-      padding-top: 10px;
+      padding: 5px;
       border-bottom: 1px solid black
   }
 

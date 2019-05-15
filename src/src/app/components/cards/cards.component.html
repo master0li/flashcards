@@ -1,10 +1,19 @@
 <app-toolbar></app-toolbar>
+<mat-menu #cardMenu="matMenu">
+    <button mat-menu-item  (click)="shuffle()">Shuffle</button>
+    <button mat-menu-item>Change Set</button>
+    <button mat-menu-item>Reset</button>
+  </mat-menu>
 <mat-card>
     <mat-card-header fxLayout="row">
     <mat-card-title fxLex="auto">
       {{title}}
     </mat-card-title>
-    <div fxFlex="auto" fxLayoutAlign="end">SETS</div>
+    <div fxFlex="auto" fxLayoutAlign="end">
+        <button mat-icon-button class="menuButton" [matMenuTriggerFor]="cardMenu">
+            <mat-icon class="md-24 ">more_vert</mat-icon>
+        </button>
+    </div>
     </mat-card-header>
   <mat-card-content  (click)="nextCard()">
     <p *ngIf="showQuestion">{{currentCard.Question}}</p>
@@ -23,8 +32,9 @@
         <button mat-raised-button *ngIf="showQuestion" (click)="toggleAnswerQuestion()">ANSWER</button>
         <button mat-raised-button *ngIf="!showQuestion" (click)="toggleAnswerQuestion()">QUESTION</button>
       </div>
-    <div fxFlex="auto" fxLayoutAlign="end">
-        <button mat-icon-button (click)="nextCard()">
+    <div fxFlex="auto" fxLayoutAlign="end" style="align-items: center !important">
+       <div class="mat-caption">({{ currentIndex + 1 }} / {{ cards.length }}) </div>
+       <button mat-icon-button (click)="nextCard()">
             <mat-icon class="md-24">keyboard_arrow_right</mat-icon>
         </button>
     </div>
